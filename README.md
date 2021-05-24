@@ -4,6 +4,9 @@ ChatPlus
 ### Initualize prject
 npm install
 
+### Clear cache
+npm cache clean --force 
+
 ### Start project
 npm run dev
 
