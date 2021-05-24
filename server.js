@@ -16,7 +16,7 @@ app.use(express.static('public'))
 
 // Get new message id
 const getNewMsgId = () => {
-    let id = MESSAGES[0].id || 0
+    let id = MESSAGES.length > 0 ? MESSAGES[0].id : 0
 
     MESSAGES.forEach(item => {
         id = id < item.id ? item.id : id

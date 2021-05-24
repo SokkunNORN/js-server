@@ -86,8 +86,9 @@ async function getMessage(isScroll = true) {
         } else {
             chatElement.appendChild(getContactMessage(item))
         }
-        chatWrapper.appendChild(chatElement)
     });
+    chatWrapper.appendChild(chatElement)
+
     if (isScroll) chatWrapper.scrollTop = 9999999999
 }
 
