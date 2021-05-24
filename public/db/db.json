@@ -17,11 +17,5 @@
       "password":"sorakh"
     }
   ],
-  "messages":[
-    {
-      "id": 1,
-      "user_id": 1,
-      "msg": "Hello World"
-    }
-  ]
+  "messages":[]
 }
