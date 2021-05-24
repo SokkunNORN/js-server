@@ -1,5 +1,5 @@
 
-if (!cache) window.location.href = "/view/login"
+if (!cache) window.location.href = "/"
 
 document.getElementById('account-name').innerHTML = cache.data.first_name + ' ' + cache.data.last_name
 
@@ -159,6 +159,6 @@ userTxt.addEventListener('keyup', function (event) {
 // Logout
 const logout = () => {
     resetCachedUser()
-    window.location.href = "/view/login"
+    window.location.href = "/"
 }
    
