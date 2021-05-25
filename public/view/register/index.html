@@ -5,8 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatPlus - Register</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/auth.css">
 </head>
 <body>
     
-</body>
+    <div class="get-started-regiter" id="register-screen">
+        <p>         
+            <span class="material-icons" id="login-logo">
+            maps_ugc
+            </span>
+            Chat <span class="login-p-subtitle">Plus</span>  
+        </p>
+    
+        <input type="text" name="firstname" id="firstname" placeholder="First Name" class="login-form">
+        <input type="text" name="lastname" id="lastname" class="login-form" placeholder="Last Name">
+        <input type="text" name="username" id="username" placeholder="Username" class="login-form">
+        <input type="password" name="password" id="password" class="login-form" placeholder="New Password">
+        <input type="password" name="confirmPassword" id="confirmPassword" class="login-form" placeholder="Confirm Password">
+        <input type="button" value="Register" class="login-btn" onclick="login()">
+
+        <span>Already have an account? <a href="/">Login</a></span>
+     </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script src="./utils/cache-util.js"></script>
+    <script src="./js/auth.js"></script></body>
 </html>
