@@ -1,11 +1,13 @@
 
-const fs = require('fs');
+const fs = require('fs')
+const { v4: uuidv4 } = require('uuid')
+const express = require('express')
+
 const DB_PART = './public/db/db.json'
 const CHAT_DB = (JSON.parse(fs.readFileSync(DB_PART)));
 const USERS = CHAT_DB.users
 const MESSAGES = CHAT_DB.messages
 
-const express = require('express')
 const app = express()
 const PORT = 5000
 
@@ -28,8 +30,15 @@ const getNewMsgId = () => {
 // Write file db
 const writeFile = (value) => {
     fs.writeFile(DB_PART ,JSON.stringify(value), function(err) {
-        if(err) throw err;
+        if (err) throw err;
     })
+}
+
+// get generate color
+const getColor = () => {
+    const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16)
+    
+    return randomColor
 }
 
 // Get all message from db
@@ -125,4 +134,26 @@ app.post('/api/v1/login', (req, res) => {
         res.status(400)
         res.send(response)
     }
+})
+
+app.post('/api/v1/register', (req, res) => {
+    const user = {
+        id: uuidv4(),
+        first_name: req.body.firstname,
+        last_name: req.body.lastname,
+        favorite_color: getColor(),
+        username: req.body.username,
+        password: req.body.password
+    }
+
+    const chats = CHAT_DB
+    chats.users.push(user)
+
+    writeFile(chats)
+
+    USERS.forEach((element, i) => {
+        if (user.id === element.id) {
+            res.send(USERS[i])
+        }
+    });
 })
