@@ -146,14 +146,34 @@ app.post('/api/v1/register', (req, res) => {
         password: req.body.password
     }
 
+    let response = {
+        data: null,
+        status: {
+            errorCode: 0,
+            errorMessage: ''
+        }
+    }
+
+    let index = -1
+
     const chats = CHAT_DB
     chats.users.push(user)
 
     writeFile(chats)
 
-    USERS.forEach((element, i) => {
+    chats.users.forEach((element, i) => {
         if (user.id === element.id) {
-            res.send(USERS[i])
+            index = i
         }
     });
+
+    if (index >= 0) {
+        response.data = USERS[index]
+        res.send(response)
+    } else {
+        response.status.errorMessage = 'Cannot Register for now!!!'
+        response.status.errorCode = 10
+        res.status(400)
+        res.send(response)
+    }
 })

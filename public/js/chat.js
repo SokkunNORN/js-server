@@ -106,7 +106,7 @@ async function sendMessage () {
             userTxt.value = ''
             await getMessage()
         } catch (error) {
-            alert('Something went wrong!!!')
+            alert('Opp, Something went wrong!!!')
         }
 
         emojiWrapper.className = 'emojis-wrapper'
