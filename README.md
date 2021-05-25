@@ -11,4 +11,4 @@ npm cache clean --force
 npm run dev
 
 ### URL
-http://localhost:5000/view/login/
+http://localhost:5000
